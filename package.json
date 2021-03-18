@@ -1,12 +1,16 @@
 {
   "name": "@monsterbilligt/predicate-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parses predicate strings",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["predicate", "parser", "monsterbilligt"],
+  "keywords": [
+    "predicate",
+    "parser",
+    "monsterbilligt"
+  ],
   "author": "Gustav Burchardt <gustav@gbur.dk>",
   "license": "ISC"
 }
