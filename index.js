@@ -1,4 +1,9 @@
-function createPredicateReg (options) {
+/**
+ * Create a regular expression for predicate strings
+ * @param {Object} options Optional options object, where keys can be accessed in the predicate
+ * @returns {RegExp} A regular expression that can test predicate strings
+ */
+function createPredicateRegExp (options) {
   const optionString = Object.keys(options).join('|') || '\\d+'
   return new RegExp(`^((?:(?:${optionString}|\\d+)\\s*\\+\\s*)*(?:${optionString}|\\d+))\\s*(<=|>=|<|>)\\s*(${optionString}|\\d+)\\s*$`)
 }
@@ -10,7 +15,7 @@ function createPredicateReg (options) {
  * @returns {Boolean} Is the predicate true?
  */
 function parsePredicate (query, options = {}) {
-  const reg = createPredicateReg(options)
+  const reg = createPredicateRegExp(options)
   if (!reg.test(query)) {
     throw new Error('Not valid')
   }
@@ -46,5 +51,6 @@ function parsePredicate (query, options = {}) {
 }
 
 module.exports = {
-  parsePredicate
+  parsePredicate,
+  createPredicateRegExp
 }
